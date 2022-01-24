@@ -1,31 +1,36 @@
-import React from 'react';
-import styled from 'styled-components';
-import { bool } from 'prop-types';
+import React from "react";
+import styled from "styled-components";
+import { bool } from "prop-types";
+import { Link } from 'react-router-dom'
+
+import { useDispatch, useSelector } from 'react-redux'
+import { logout } from "../../../store/features/user/userSlice";
 
 const Menu = ({ open }) => {
+  const dispatch = useDispatch()
+  const user = useSelector((state) => state.user.user)
+  
+  const handleLogout = (e) => {
+    dispatch(logout())
+  }
+  
   return (
     <StyledMenu open={open}>
-      <a href="/profile">
-        Profile
-      </a>
-      <a href="/admin">
-        Admin
-        </a>
-      <a href="/logout">
-        Logout
-        </a>
+      <Link to="profile">Profile</Link>
+      {user.role === 'admin' ? <Link to="admin">Admin</Link> : null}
+      <div onClick={handleLogout}>Logout</div>
     </StyledMenu>
-  )
-}
+  );
+};
 
 Menu.propTypes = {
-    open: bool.isRequired,
-}
+  open: bool.isRequired,
+};
 
 export default Menu;
 
 export const StyledMenu = styled.nav`
-  display: ${({ open }) => open ? 'flex' : 'none'};
+  display: ${({ open }) => (open ? "flex" : "none")};
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
@@ -37,7 +42,7 @@ export const StyledMenu = styled.nav`
   left: 0;
   width: 100%;
 
-  a {
+  a, div {
     font-size: 2rem;
     text-transform: uppercase;
     padding: 2rem 0;
@@ -46,7 +51,8 @@ export const StyledMenu = styled.nav`
     color: ${({ theme }) => theme.primaryDark};
     text-decoration: none;
     transition: color 0.3s linear;
-    
+    cursor: pointer;
+
     @media (max-width: ${({ theme }) => theme.mobile}) {
       font-size: 1.5rem;
       text-align: center;

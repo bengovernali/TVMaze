@@ -1,17 +1,20 @@
 import React, { useState } from 'react'
 import styled from 'styled-components'
 
+import { useSelector } from 'react-redux'
+
 import Menu from './Menu/Menu'
 import Burger from './Burger/Burger'
 
 
 function Header () {
     const [open, setOpen] = useState(false);
+    const user = useSelector((state) => state.user.user)
     return (
         <HeaderWrapper>
             <SiteTitle>TVMaze App</SiteTitle>
-            <Burger open={open} setOpen={setOpen}/>
-            <Menu open={open} setOpen={setOpen}/>
+            { !!user.username ? <Burger open={open} setOpen={setOpen}/> : null}
+            { !!user.username ? <Menu open={open} setOpen={setOpen}/> : null}
         </HeaderWrapper>
     )
 }
