@@ -1,26 +1,38 @@
-import React from 'react'
+import React from "react";
 
-import styled from 'styled-components';
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
-import { ThemeProvider } from 'styled-components';
-import { GlobalStyles } from './global';
-import { theme } from './theme';
+import styled from "styled-components";
 
-import Header from './Components/Header/Header';
-import Body from './Components/Body/Body';
-import Footer from './Components/Footer/Footer';
+import { ThemeProvider } from "styled-components";
+import { GlobalStyles } from "./global";
+import { theme } from "./theme";
+
+import Header from "./Components/Header/Header";
+import Footer from "./Components/Footer/Footer";
+
+import Login from "./Components/Login/Login";
+import Search from "./Components/Body/Search";
+import Admin from "./Components/Body/Admin";
+import Profile from "./Components/Body/Profile";
 
 function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyles />
-      <>
-      <AppWrapper>
-      <Header />
-      <Body />
-      <Footer />
-    </AppWrapper>
-    </>
+
+      <Router>
+        <AppWrapper>
+          <Header />
+          <Routes>
+            <Route path="/" element={<Login />} />
+            <Route path="/search" element={<Search />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/profile" element={<Profile />} />
+          </Routes>
+          <Footer />
+        </AppWrapper>
+      </Router>
     </ThemeProvider>
   );
 }
@@ -30,6 +42,6 @@ const AppWrapper = styled.div`
   width: 100vw;
   font-size: 12px;
   background-color: #64e9ee;
-`
+`;
 
 export default App;
