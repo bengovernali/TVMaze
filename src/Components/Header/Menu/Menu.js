@@ -25,7 +25,7 @@ Menu.propTypes = {
 export default Menu;
 
 export const StyledMenu = styled.nav`
-  display: flex;
+  display: ${({ open }) => open ? 'flex' : 'none'};
   flex-direction: column;
   justify-content: center;
   background: ${({ theme }) => theme.primaryLight};
@@ -35,12 +35,7 @@ export const StyledMenu = styled.nav`
   position: absolute;
   top: 65px;
   left: 0;
-  transition: transform 0.3s ease-in-out;
-  transform: ${({ open }) => open ? 'translateX(0)' : 'translateX(100%)'};
-  
-  @media (max-width: ${({ theme }) => theme.mobile}) {
-    width: 100%;
-  }
+  width: 100%;
 
   a {
     font-size: 2rem;
