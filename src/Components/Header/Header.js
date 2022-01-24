@@ -1,11 +1,17 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
+
+import Menu from './Menu/Menu'
+import Burger from './Burger/Burger'
 
 
 function Header () {
+    const [open, setOpen] = useState(false);
     return (
         <HeaderWrapper>
             <SiteTitle>TVMaze App</SiteTitle>
+            <Burger open={open} setOpen={setOpen}/>
+            <Menu open={open} setOpen={setOpen}/>
         </HeaderWrapper>
     )
 }
