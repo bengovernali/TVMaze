@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# TVMaze App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was put together as part of a technical assesment
 
 ## Available Scripts
 
@@ -29,42 +29,31 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `npm run eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## How It Works
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+The first step is to 'log in' (this app is only connected to a public api. login is a simple hard coded setup)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+There are two users hard coded into the app:
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+    username: mikewasowski  password: codingiscool      rights: admin
 
-## Learn More
+    username: elemin        password:ontheroadagain     rights: user
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Show Search
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+Once you have 'logged in' simply type any keyword you like into the searchbar, then click the submit button. A set of results should populate underneath. Only users with 'admin' access (mikewasowski) will be able to see more than just the show titles and posters.
 
-### Code Splitting
+### Menu
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+The menu consists of 4 links:
 
-### Analyzing the Bundle Size
+    Search: this will bring you back to the search page
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+    Profile: this will bring you to the profile page. This page does not actually have any profile data and will just provide a little greeting.
 
-### Making a Progressive Web App
+    Admin: this link is only accessible to users with the 'admin' role. it will not render for other users. Like the profile link, this link will bring the user to the Admin page. Once again, it does not have any actual content, just a greeting.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+    Logout: clicking this link will clear the app of the logged in user's details, forcing the user back to the login screen. 
 
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Attempting to access any route before logging in should force the user back to the login screen. Attempting to access the login screen after you have already logged in should force you back to the Search screen. Attempting to access routes only accessible to admins should force the user back to the Search screen.

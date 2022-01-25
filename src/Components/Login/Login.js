@@ -14,13 +14,13 @@ import SubmitButton from '../StyledComponents/SubmitButton'
 const users = [
     {
         username: 'mikewasowski',
-        password: 'codingiscool',
+        password: 'opensesame',
         role: 'admin',
         name: 'Mike Wasowski'
     },
     {
         username: 'elemin',
-        password: 'ontheroadagain',
+        password: 'riseandshine',
         role: 'user',
         name: 'Andre Smith'
     }
