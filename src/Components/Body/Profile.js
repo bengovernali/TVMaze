@@ -3,6 +3,8 @@ import React, { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { useLocation, useNavigate } from 'react-router-dom'
 
+import styled from 'styled-components'
+
 function Profile () {
     const location = useLocation()
   const navigate = useNavigate()
@@ -13,8 +15,13 @@ function Profile () {
   }, [location, navigate, user])
     
   return (
-        <h1>PROFILE PAGE</h1>
+        <Message>This is where the user's profile would go!</Message>
     )
 }
+
+const Message = styled.h2`
+    color: #000000;
+    text-align: center;
+`
 
 export default Profile

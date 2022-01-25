@@ -9,6 +9,7 @@ import { useNavigate } from 'react-router-dom'
 import { setUser } from '../../store/features/user/userSlice'
 
 import BodyWrapper from '../StyledComponents/BodyWrapper'
+import SubmitButton from '../StyledComponents/SubmitButton'
 
 const users = [
     {
@@ -86,16 +87,6 @@ const InputField = styled.input`
     border-radius: 2em;
     margin: 20px;
     padding: 0 20px;
-`
-
-const SubmitButton = styled.button`
-    height: 30px;
-    width: 80px;
-    border-radius: 30px;
-    font-weight: bold;
-    color: #FFFFFF;
-    cursor: ${props => props.disabled ? 'clicker' : 'pointer'};
-    background: ${props => props.disabled ? '#6a6a6a' : '#06908F'};
 `
 
 export default Login

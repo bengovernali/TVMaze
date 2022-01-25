@@ -4,10 +4,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { ThemeProvider } from "styled-components";
-import { GlobalStyles } from "./global";
-import { theme } from "./theme";
-
 import Header from "./Components/Header/Header";
 import Footer from "./Components/Footer/Footer";
 
@@ -18,9 +14,6 @@ import Profile from "./Components/Body/Profile";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-
       <Router>
         <AppWrapper>
           <Header />
@@ -33,7 +26,6 @@ function App() {
           <Footer />
         </AppWrapper>
       </Router>
-    </ThemeProvider>
   );
 }
 

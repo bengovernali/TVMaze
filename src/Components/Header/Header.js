@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 import Menu from './Menu/Menu'
 import Burger from './Burger/Burger'
@@ -10,9 +11,11 @@ import Burger from './Burger/Burger'
 function Header () {
     const [open, setOpen] = useState(false);
     const user = useSelector((state) => state.user.user)
+
+    const navigate = useNavigate()
     return (
         <HeaderWrapper>
-            <SiteTitle>TVMaze App</SiteTitle>
+            <SiteTitle onClick={() => {navigate('/')}}>TVMaze App</SiteTitle>
             { !!user.username ? <Burger open={open} setOpen={setOpen}/> : null}
             { !!user.username ? <Menu open={open} setOpen={setOpen}/> : null}
         </HeaderWrapper>
