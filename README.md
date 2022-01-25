@@ -59,7 +59,8 @@ The menu consists of 4 links:
     Like the profile link, this link will bring the user to the Admin page. 
     Once again, it does not have any actual content, just a greeting.
 
-    Logout: clicking this link will clear the app of the logged in user's details, forcing the user back to the login screen. 
+    Logout: clicking this link will clear the app of the logged in user's details.
+    this will force the user back to the login screen. 
 
 Attempting to access any route before logging in should force the user back to the login screen. 
 Attempting to access the login screen after you have already logged in should force you back to the Search screen. 
